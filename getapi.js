@@ -29,12 +29,10 @@ Request.get("https://coderbyte.com/api/challenges/json/age-counting", (error, re
 
     readable.pipe(myWriteStream)
 
-    singleData.forEach(item => {
-        readable.push(item + "\n\n")
-
-    })
+    for(index = 0; index < singleData.length; index+=2) {
+        readable.push(singleData[index] + "\n\n")
+    }
 
     // no more data
     readable.push(null)
 });
-
